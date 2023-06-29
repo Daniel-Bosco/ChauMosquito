@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th class="tab-l">Cart</th>
+      <th class="tab">Deliver option</th>
+      <th class="tab">Date</th>
+      <th class="tab-r" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td class="tab"><%= order.cart.description %></td>
+        <td class="tab"><%= order.deliver_option %></td>
+        <td class="tab"><%= order.date %></td>
+        <td class="tab"><%= link_to 'Show', order, class: 'btn btn-sm btn-warning text-light'  %></td>
+        <td class="tab"><%= link_to 'Edit', edit_order_path(order), class: 'btn btn-sm btn-info text-light'  %></td>
+        <td class="tab"><%= button_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger text-light'  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path, class: 'btn button-green' %>

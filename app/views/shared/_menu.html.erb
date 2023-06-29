@@ -1,0 +1,34 @@
+<ul class="navbar-nav me-auto mb-2 mb-xl-0">
+  <% if params[:action] == "shop" && params[:controller] == "products" %>
+    <div class="collapse navbar-collapse show" id="navbarDark">
+      <h2 style="color: white">Tienda ChauMosquitardo</h2>
+    </div>
+
+  <% else %>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.brands'), brands_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.product_types'), product_types_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.products'), products_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.stocks'), stocks_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.carts'), carts_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.purchases'), purchases_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t('activerecord.models.orders'), orders_url, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Shop', shop_url, class: "nav-link active" %>
+    </li>
+
+  <% end %>
+</ul>

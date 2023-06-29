@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* contenedor principal */
+
+.padre {
+    margin: 1%;
+    padding-bottom: 3%;
+  }
+
+/* tablas */
+
+ th{
+    background-color: #6CB809 !important;
+  }
+
+  tr:nth-child(odd){
+    background-color: #B8E265;
+  }
+
+  tr:nth-child(even){
+    background-color: #8CC027;
+  }
+
+  .tab{
+    border-radius: 0px;
+    border: 0;
+    outline: none;
+  }
+
+  .tab-l{
+    border-radius: 5px 0px 0px 0px;
+    border: 0;
+    outline: none;
+  }
+
+  .tab-r{
+    border-radius: 0px 5px 0px 0px;
+    border: 0;
+    outline: none;
+  }
+
+/* botones */
+
+.button-green{
+    background-color: rgb(108, 184, 9);
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 10px;
+  }
+
+.button-green:hover{
+    background-color: rgb(152, 226, 40) !important;
+    color: white !important;
+}
+
+/* imagenes */
+
+.imagenes {
+  width: 310px;
+  height: 310px;
+}
+
+.nav-link:hover{
+  color: lightgray !important;
+}

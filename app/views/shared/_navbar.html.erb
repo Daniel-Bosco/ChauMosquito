@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-xl navbar-dark sticky-top" style="background-color: #0FA9E1;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<%= shop_url %>"><img src="https://cdn-icons-png.flaticon.com/512/4844/4844144.png" alt="Mosquito" width="40" height="40"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark"
+      aria-controls="navbarDark" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse show" id="navbarDark">
+      
+      <%= render "shared/menu" %>
+
+      <% if params[:action] == "shop" && params[:controller] == "products" %>
+        <%= form_tag(shop_path, method: :get) do %>
+          <%= text_field_tag(:search, params[:search], placeholder: 'Buscar productos') %>
+          <%= submit_tag("Buscar") %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</nav>

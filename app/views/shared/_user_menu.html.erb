@@ -1,0 +1,13 @@
+<div class="btn-group dropup">
+  <% if user_signed_in? %>
+    <button type="button" class="btn dropdown-toggle ms-3" style="background-color: #efefef;" data-bs-toggle="dropdown" aria-expanded="false">
+      <span style="color:black"><%= current_user.abbreviation %></span>
+    </button>
+    <ul class="dropdown-menu ms-3">
+      <li><%= link_to "Editar Perfil", edit_user_registration_path, class: "dropdown-item" %></li>
+      <li><%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+    </ul>
+    <% else %>
+      <%= link_to "Iniciar Sesión", new_user_session_url, class: 'btn btn-secondary ms-3' %>
+    <% end %>
+</div>

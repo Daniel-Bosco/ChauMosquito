@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carts</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th class="tab-l">User</th>
+      <th class="tab">Description</th>
+      <th class="tab-r" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td class="tab"><%= cart.user.abbreviation %></td>
+        <td class="tab"><%= cart.description %></td>
+        <td class="tab"><%= link_to 'Show', cart, class: 'btn btn-sm btn-warning text-light'  %></td>
+        <td class="tab"><%= link_to 'Edit', edit_cart_path(cart), class: 'btn btn-sm btn-info text-light'  %></td>
+        <td class="tab"><%= button_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger text-light'  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cart', new_cart_path, class: 'btn button-green' %>

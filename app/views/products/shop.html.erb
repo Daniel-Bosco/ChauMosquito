@@ -1,0 +1,55 @@
+<div class="text-center">
+  <h4>Productos por <strong>Categoría</strong></h4>
+
+  <div class="btn-toolbar w-75 justify-content-center mx-auto">
+    <% ProductType.all.each do |product_type| %>
+      <%= link_to product_type.name, shop_url(product_type: product_type.id), class: "btn btn-primary", style: "margin:0.2%" %>
+    <% end %>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="row row-cols-1 row-cols-sm-4 g-3">
+  <% if @products.size > 0 %>
+    <% @products.each do |product| %>
+      <div class="col">
+        <div class="card text-center">
+
+          <% if product.image.attached? %> <%= image_tag product.image, class: 'card-img-top imagenes' %>
+          <% else %> <%= image_tag "notexture", class: 'card-img-top imagenes' %>
+          <% end %>
+
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong><%= product.name %></strong>
+              <br>
+              <small>(<strong><%= product.brand.name %></strong>: <%= product.product_type.name %>)</small>
+            </h5>
+
+            <p class="card-text">
+              <%= product.description %>
+              <hr>
+              <strong>Precio: </strong>
+              <%= price(product) %>
+              <br>
+              <span class="<%= stock(product) %>"><%= product.stock.quantity %> en Stock</span>
+              <hr>
+              <%= link_to 'Ver más', product, class: 'btn btn-sm btn-outline-secondary' %>
+              <% if (product.stock.quantity != 0) %><%= link_to 'Agregar al carrito', product, class: 'btn btn-sm btn-outline-secondary' %>
+              <% end %>
+            </p>
+          </div>
+
+        </div>
+      </div>
+  <% end %>
+
+<% else %>
+  <div class="alert alert-warning text-center" style="width:100%">
+    <strong> <%= t('sorry') %> </strong>
+  </div>
+<% end %>
+
+</div>

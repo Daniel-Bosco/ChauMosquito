@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Purchases</h1>
+
+<table class="table table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th class="tab-l">Product</th>
+      <th class="tab">Cart</th>
+      <th class="tab">Quantity</th>
+      <th class="tab-r" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td class="tab"><%= purchase.product.name %></td>
+        <td class="tab"><%= purchase.cart.description %></td>
+        <td class="tab"><%= purchase.quantity %></td>
+        <td class="tab"><%= link_to 'Show', purchase, class: 'btn btn-sm btn-warning text-light'  %></td>
+        <td class="tab"><%= link_to 'Edit', edit_purchase_path(purchase), class: 'btn btn-sm btn-info text-light'  %></td>
+        <td class="tab"><%= button_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger text-light'  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchase', new_purchase_path, class: 'btn button-green' %>
